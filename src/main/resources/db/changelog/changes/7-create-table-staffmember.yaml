@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: 7-create-table-staffmember
+      author: Marta_Viarenchykava
+      changes:
+        - tagDatabase:
+            tag: version_1.6
+        - createTable:
+            tableName: staffmember
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: firstname
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: surname
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: position
+                  type: staff_position

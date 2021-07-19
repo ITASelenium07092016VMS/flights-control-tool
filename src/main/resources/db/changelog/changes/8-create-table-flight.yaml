@@ -1,0 +1,52 @@
+databaseChangeLog:
+  - changeSet:
+      id: 8-create-table-flight
+      author: Marta_Viarenchykava
+      changes:
+        - tagDatabase:
+            tag: version_1.7
+        - createTable:
+            tableName: flight
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: airplane_id
+                  type: bigserial
+              - column:
+                  name: departure_airport_id
+                  type: bigserial
+              - column:
+                  name: arrival_airport_id
+                  type: bigserial
+              - column:
+                  name: departure_date_time
+                  type: timestamp
+              - column:
+                  name: arrival_date_time
+                  type: timestamp
+              - column:
+                  name: base_price
+                  type: numeric
+              - addForeignKeyConstraint:
+                  baseColumnNames: airplane_id
+                  baseTableName: flight
+                  constraintName: fk_flight_airplane
+                  referencedColumnNames: id
+                  referencedTableName: airplane
+              - addForeignKeyConstraint:
+                  baseColumnNames: departure_airport_id
+                  baseTableName: flight
+                  constraintName: fk_flight_airport
+                  referencedColumnNames: id
+                  referencedTableName: airport
+              - addForeignKeyConstraint:
+                  baseColumnNames: arrival_airport_id
+                  baseTableName: flight
+                  constraintName: fk_flight_airport
+                  referencedColumnNames: id
+                  referencedTableName: airport

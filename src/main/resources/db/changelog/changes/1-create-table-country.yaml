@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1-create-table-country
+      author: Marta_Viarenchykava
+      changes:
+        - tagDatabase:
+            tag: version_1.0
+        - createTable:
+            tableName: country
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: text
+                  constraints:
+                    nullable: false

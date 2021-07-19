@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: 5-create-custom-types
+      author: Marta_Viarenchykava
+      changes:
+        - tagDatabase:
+            tag: version_1.4
+        - sql:
+            sql: CREATE TYPE manufacturer AS ENUM ('AEROSTAR','AIRBUS','BEECHCRAFT','BELL','BOEING','BOMBARDIER','CESSNA','DASSAULT','GULFSTREAM','HONDA_AIRCRAFT','LEONARDO','PILATUS_AIRCRAFT');
+        - sql:
+            sql: CREATE TYPE staff_position AS ENUM ('PILOT','FLIGHT_ATTENDANT','ENGINEER','MECHANIC');

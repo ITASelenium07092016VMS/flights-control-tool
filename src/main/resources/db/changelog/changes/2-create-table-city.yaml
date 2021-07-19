@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2-create-table-city
+      author: Marta_Viarenchykava
+      changes:
+        - tagDatabase:
+            tag: version_1.1
+        - createTable:
+            tableName: city
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: country_id
+                  type: bigserial
+              - addForeignKeyConstraint:
+                  baseColumnNames: country_id
+                  baseTableName: city
+                  constraintName: fk_city_country
+                  referencedColumnNames: id
+                  referencedTableName: country
