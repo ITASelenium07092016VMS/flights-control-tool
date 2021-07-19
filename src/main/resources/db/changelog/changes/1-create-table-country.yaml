@@ -3,6 +3,8 @@ databaseChangeLog:
       id: 1-create-table-country
       author: Marta_Viarenchykava
       changes:
+        - tagDatabase:
+            tag: version_1.0
         - createTable:
             tableName: country
             columns:

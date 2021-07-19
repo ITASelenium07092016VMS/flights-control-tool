@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: 6-create-table-airplane
+      author: Marta_Viarenchykava
+      changes:
+        - tagDatabase:
+            tag: version_1.5
+        - createTable:
+            tableName: airplane
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: number
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: capacity
+                  type: integer
+              - column:
+                  name: manufacturer
+                  type: manufacturer
+              - column:
+                  name: company_id
+                  type: bigserial
+                  constraints:
+                    nullable: false
+              - addForeignKeyConstraint:
+                  baseColumnNames: company_id
+                  baseTableName: airplane
+                  constraintName: fk_airplane_company
+                  referencedColumnNames: id
+                  referencedTableName: company

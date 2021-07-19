@@ -1,12 +1,12 @@
 databaseChangeLog:
   - changeSet:
-      id: 2-create-table-city
+      id: 7-create-table-staffmember
       author: Marta_Viarenchykava
       changes:
         - tagDatabase:
-            tag: version_1.1
+            tag: version_1.6
         - createTable:
-            tableName: city
+            tableName: staffmember
             columns:
               - column:
                   name: id
@@ -15,16 +15,15 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: name
+                  name: firstname
                   type: text
                   constraints:
                     nullable: false
               - column:
-                  name: country_id
-                  type: bigserial
-              - addForeignKeyConstraint:
-                  baseColumnNames: country_id
-                  baseTableName: city
-                  constraintName: fk_city_country
-                  referencedColumnNames: id
-                  referencedTableName: country
+                  name: surname
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: position
+                  type: staff_position

@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 9-populate-database
+      author: Marta_Viarenchykava
+      changes:
+        - tagDatabase:
+            tag: version_1.8
+        - sql:
+            sql: INSERT INTO country (name) values ('Albania'), ('Australia'), ('Austria'), ('Belarus'), ('Belgium'), ('Canada'), ('Denmark'), ('Egypt'), ('Germany'), ('Greece'), ('India'), ('Hungary'), ('Iceland'), ('Italy'), ('Kazakhstan'), ('Mexico'), ('New Zealand'), ('Norway'), ('Pakistan'), ('Poland'), ('Russia'), ('Spain'), ('Sweden'), ('Turkey'), ('United Kingdom'), ('United States of America');
+        - sql:
+            sql: INSERT INTO city (name, country_id) values ('Minsk', 4), ('Hurgada', 8), ('Berlin', 9), ('New Delhi', 11), ('Milan', 14), ('Rome', 14), ('Wroclaw', 20), ('Krakow', 20), ('Moscow', 21), ('Novgorod', 21), ('London', 25), ('Las Vegas', 26), ('Washington', 26);
+        - sql:
+            sql: INSERT INTO airport (name, city_id) values ('Minsk-1', 1), ('Minsk-2', 1), ('Hurg', 2), ('ABC', 3), ('SVS', 5);
+        - sql:
+            sql: INSERT INTO company (name) values ('Lufthansa'), ('Ryanair'), ('S7 Airlines'), ('Saudia'), ('Turkish Airlines'), ('Wizzair'), ('Oman Air'), ('Finnair'), ('Aeroflot'), ('British Airways'), ('easyJet'), ('Air Baltic');
+        - sql:
+            sql: INSERT INTO airplane (number, capacity, manufacturer, company_id) values ('TU-154-UU-190099', 120, 'AIRBUS', 1), ('AIR-8493840984', 65, 'BOEING', 2), ('BELL-00120', 70, 'BELL', 3), ('L-9302-309', 250, 'LEONARDO', 5);
+        - sql:
+            sql: INSERT INTO staffmember (firstname, surname, position) values ('Olga', 'Ivanova', 'FLIGHT_ATTENDANT'), ('John', 'Smith', 'PILOT'), ('Nick', 'Brown', 'ENGINEER'), ('Rosa', 'Shuller', 'FLIGHT_ATTENDANT');
+        - sql:
+            sql: INSERT INTO flight (airplane_id, departure_airport_id, arrival_airport_id, departure_date_time, arrival_date_time, base_price) values (1, 1, 3, null, null, 100.48), (2, 5, 2, null, null, 78.97), (3, 4, 6, null, null, 230.74);

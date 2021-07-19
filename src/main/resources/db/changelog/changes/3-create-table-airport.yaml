@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3-create-table-airport
+      author: Marta_Viarenchykava
+      changes:
+      - tagDatabase:
+            tag: version_1.2
+      - createTable:
+            tableName: airport
+            columns:
+                - column:
+                    name: id
+                    type: bigserial
+                    constraints:
+                        primaryKey: true
+                        nullable: false
+                - column:
+                    name: name
+                    type: text
+                    constraints:
+                        nullable: false
+                - column:
+                    name: city_id
+                    type: bigserial
+      - addForeignKeyConstraint:
+          baseColumnNames: city_id
+          baseTableName: airport
+          constraintName: fk_airport_city
+          referencedColumnNames: id
+          referencedTableName: city
